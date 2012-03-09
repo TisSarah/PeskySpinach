@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="offense_prompt">Pick an offense</string>
+    <string-array name="offense_array">
+    	<item>It looks like you might have something in or on your teeth. Mirror?</item>
+    	<item>No offense but it\'s time for a breath mint? Gum? Something.</item>
+    </string-array>
+</resources>

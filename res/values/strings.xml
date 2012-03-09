@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, PeskySpinach!</string>
+    <string name="app_name">Pesky Spinach</string>
+    <string name="pick_contact_label">Choose a Contact</string>
+    <string name="choose_offense">Choose an offense:</string>
+
+</resources>
