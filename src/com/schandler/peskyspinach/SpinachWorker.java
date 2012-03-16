@@ -107,7 +107,7 @@ public class SpinachWorker {
 		mDbHelper.close();
 	}
 
-	public void setTargetContactId(String contactId) {
+	public void setContactId(String contactId) {
 		//    	ContentValues initialValues = new ContentValues();
 		//    	initialValues.put(KEY_contactId)
 		//      mDb.insert(DATABASE_TABLE, null, initialValues);
@@ -119,8 +119,28 @@ public class SpinachWorker {
 	public String getContactId() {
 		return (mSpinachPreferences.getString(KEY_CONTACT_ID, "-1"));
 	}
+	
+	public void setNumber(String number) {
+		SharedPreferences.Editor editor = mSpinachPreferences.edit();
+		editor.putString(KEY_CONTACT_PHONE, number);
+		editor.commit();
+	}
+	
+	public String getNumber() {
+		return (mSpinachPreferences.getString(KEY_CONTACT_PHONE, "-1"));
+	}
+	
+	public void setMessage(String message) {
+		SharedPreferences.Editor editor = mSpinachPreferences.edit();
+		editor.putString(KEY_MESSAGE, message);
+		editor.commit();
+	}
+	
+	public String getMessage() {
+		return (mSpinachPreferences.getString(KEY_MESSAGE, "-1"));
+	}
 
-	public void sendTheSMS (String contactPhone, String message) {  
+ 	public void sendTheSMS (String contactPhone, String message) {  
 		SharedPreferences.Editor editor = mSpinachPreferences.edit();
 		contactPhone = contactPhone.replaceAll("\\D","");
 		editor.putString(KEY_CONTACT_PHONE, contactPhone);

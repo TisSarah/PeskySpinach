@@ -37,7 +37,7 @@ public class PeskySpinach extends Activity {
 			switch (requestCode) {
 			case CONTACT_PICKER_RESULT:
 				Uri result = data.getData();
-				mSpinachWorker.setTargetContactId(result.getLastPathSegment());
+				mSpinachWorker.setContactId(result.getLastPathSegment());
 				Intent i = new Intent(this, ChooseOffense.class);
 				i.putExtra(SpinachWorker.KEY_CONTACT_ID, result);
 				startActivityForResult(i, 0);

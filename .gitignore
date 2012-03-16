@@ -1,2 +1,5 @@
 twilio_credentials.xml
 sdcard.img
+bin/*
+gen/*
+.DS_Store

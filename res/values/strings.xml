@@ -5,5 +5,9 @@
     <string name="app_name">Pesky Spinach</string>
     <string name="pick_contact_label">Choose a Contact</string>
     <string name="choose_offense">Choose an offense:</string>
+    <string name="instructions">"Use this app to anonymously let a friend know they are committing a faux pas. That's what friends are for :) "</string>
+    <string name="choose_phone_instructions">Choose the phone number you\'d like to send your message to:</string>
+    <string name="send_text_label">SMS</string>
+    <string name="make_call_label">Call</string>
 
 </resources>
