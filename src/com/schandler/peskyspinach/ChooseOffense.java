@@ -62,6 +62,7 @@ public class ChooseOffense extends Activity {
 			
 			Intent i = new Intent(ChooseOffense.this, SendOffense.class);
 			startActivityForResult(i, 0);
+			ChooseOffense.this.finish();
 		}
 	}
 	

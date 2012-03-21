@@ -31,7 +31,7 @@ public class PeskySpinach extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		Bundle bundle = data.getExtras();
+		//Bundle bundle = data.getExtras();
 		
 		if(resultCode == RESULT_OK) {
 			switch (requestCode) {

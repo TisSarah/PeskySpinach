@@ -49,7 +49,7 @@ public class SendOffense extends Activity {
 		Button smsButton = (Button) findViewById(R.id.send_sms_button); 
 		smsButton.setOnClickListener(new MyOnClickListener());
 		Button callButton = (Button) findViewById(R.id.make_call_button);
-		smsButton.setOnClickListener(new MyOnClickListener());
+		callButton.setOnClickListener(new MyOnClickListener());
 		
 		smsButton.setEnabled(false);
 		callButton.setEnabled(false);
@@ -72,8 +72,7 @@ public class SendOffense extends Activity {
 			Button callButton = (Button) findViewById(R.id.make_call_button);
 			
 			smsButton.setEnabled(true);
-			//don't support phone calls yet
-			//callButton.setEnabled(true);
+			callButton.setEnabled(true);
 		}
 
 		public void onNothingSelected(AdapterView<?> arg0) {
@@ -87,6 +86,10 @@ public class SendOffense extends Activity {
 			if(view.getId() == R.id.send_sms_button) {
 				mSpinachWorker.sendTheSMS(mSpinachWorker.getNumber(), mSpinachWorker.getMessage());
 			}
+			if(view.getId() == R.id.make_call_button) {
+				mSpinachWorker.makeTheCall(mSpinachWorker.getNumber(), mSpinachWorker.getMessage());
+			}
+			SendOffense.this.finish();
 		}
 	}
 }
