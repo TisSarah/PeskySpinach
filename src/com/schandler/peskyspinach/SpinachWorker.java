@@ -112,6 +112,9 @@ public class SpinachWorker {
 				nameValuePairs.add(new BasicNameValuePair("From", SpinachWorker.TWILIO_NUMBER));
 				nameValuePairs.add(new BasicNameValuePair("To", contactPhone));
 				nameValuePairs.add(new BasicNameValuePair("Body", message));
+				nameValuePairs.add(new BasicNameValuePair("TWILIO_ACCOUNT_SID", TWILIO_ACCOUNT_SID));
+				nameValuePairs.add(new BasicNameValuePair("TWILIO_NUMBER", TWILIO_NUMBER));
+				nameValuePairs.add(new BasicNameValuePair("TWILIO_AUTH_TOKEN", TWILIO_AUTH_TOKEN));
 				httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
 				// Execute HTTP Post Request
