@@ -18,9 +18,11 @@ public class PeskySpinach extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // Set the user interface layout
         setContentView(R.layout.main);
+        
         mSpinachWorker = new SpinachWorker(this);
-        // mSpinachWorker.open();
     }
     
     public void doLaunchContactPicker(View view) {
@@ -31,8 +33,7 @@ public class PeskySpinach extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		//Bundle bundle = data.getExtras();
-		
+
 		if(resultCode == RESULT_OK) {
 			switch (requestCode) {
 			case CONTACT_PICKER_RESULT:

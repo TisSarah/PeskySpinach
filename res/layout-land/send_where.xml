@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/send_sms_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="72dp"
+        android:layout_marginLeft="32dp"
+        android:text="@string/send_text_label" />
+
+    <Button
+        android:id="@+id/make_call_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/send_sms_button"
+        android:layout_alignBottom="@+id/send_sms_button"
+        android:layout_marginLeft="61dp"
+        android:layout_toRightOf="@+id/send_sms_button"
+        android:text="@string/make_call_label" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="27dp"
+        android:text="@string/choose_phone_instructions"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Spinner
+        android:id="@+id/number_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/send_sms_button"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>

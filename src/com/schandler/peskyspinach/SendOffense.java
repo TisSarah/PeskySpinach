@@ -30,6 +30,11 @@ public class SendOffense extends Activity {
 		setContentView(R.layout.send_where); 
 		mSpinachWorker = new SpinachWorker(this);
 		
+		if(savedInstanceState != null) {
+			mSpinachWorker.setMessage(savedInstanceState.getString(mSpinachWorker.KEY_MESSAGE));
+			mSpinachWorker.setContactId(savedInstanceState.getString(mSpinachWorker.KEY_CONTACT_ID));
+		}
+		
 		Spinner spinner = (Spinner) findViewById(R.id.number_spinner); 
 		spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
 		
@@ -53,11 +58,14 @@ public class SendOffense extends Activity {
 		
 		smsButton.setEnabled(false);
 		callButton.setEnabled(false);
+	}
+	
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+		savedInstanceState.putString(mSpinachWorker.KEY_CONTACT_ID, mSpinachWorker.getContactId());
+		savedInstanceState.putString(mSpinachWorker.KEY_MESSAGE, mSpinachWorker.getMessage());
 		
-		//Cursor cursor = getContentResolver().query(Phone.CONTENT_URI, null,  Phone.CONTACT_ID + " = " + mSpinachWorker.getContactId(), null, null);
-		//while (cursor.moveToNext()) {
-		//	String phoneNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
-		//}
+		super.onSaveInstanceState(savedInstanceState);
 	}
 	
 	public class MyOnItemSelectedListener implements OnItemSelectedListener {

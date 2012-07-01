@@ -21,21 +21,27 @@ import android.widget.TextView;
 public class ChooseOffense extends Activity {
 
 	private SpinachWorker mSpinachWorker;
-	private String mContactId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.choose_offense); 
 		mSpinachWorker = new SpinachWorker(this);
-		mContactId = mSpinachWorker.getContactId();
+		
+		// if contactId in Bundle
+		if(savedInstanceState != null) {
+			mSpinachWorker.setContactId(savedInstanceState.getString(mSpinachWorker.KEY_CONTACT_ID));
+		}
+		
+		String contactId = mSpinachWorker.getContactId();
 		
 		ListView offenseList = (ListView) findViewById(R.id.offense_list); 
 		String[] offenses = getResources().getStringArray(R.array.offense_array);
 		offenseList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, offenses));
 		offenseList.setOnItemClickListener(new MyOnItemClickListener());
 		
-		Uri contactUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_URI, mContactId);
+		Uri contactUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_URI, contactId);
 		ImageView contactImage = (ImageView) findViewById(R.id.contact_image);
 		InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(this.getContentResolver(), contactUri);
 		if (input != null) {
@@ -50,8 +56,13 @@ public class ChooseOffense extends Activity {
 		} finally {
 		    people.close();
 		}
+	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle savedInstanceState) {
+		savedInstanceState.putString(mSpinachWorker.KEY_CONTACT_ID, mSpinachWorker.getContactId());
 		
-
+		super.onSaveInstanceState(savedInstanceState);
 	}
 
 	public class MyOnItemClickListener implements OnItemClickListener {
@@ -65,6 +76,4 @@ public class ChooseOffense extends Activity {
 			ChooseOffense.this.finish();
 		}
 	}
-	
-
 }
