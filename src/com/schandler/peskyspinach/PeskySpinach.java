@@ -1,9 +1,11 @@
 package com.schandler.peskyspinach;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.provider.ContactsContract.Contacts;
@@ -21,6 +23,13 @@ public class PeskySpinach extends Activity {
         
         // Set the user interface layout
         setContentView(R.layout.main);
+        
+        // Make sure running HC or higher to use ActionBar
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+        {
+        	ActionBar actionBar = getActionBar();
+        	actionBar.setHomeButtonEnabled(false);
+        }
         
         mSpinachWorker = new SpinachWorker(this);
     }

@@ -3,10 +3,14 @@
  */
 package com.schandler.peskyspinach;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -28,6 +32,13 @@ public class SendOffense extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.send_where); 
+		
+        // Make sure running HC or higher to use ActionBar
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        	ActionBar actionBar = getActionBar();
+        	actionBar.setHomeButtonEnabled(true);
+        }
+		
 		mSpinachWorker = new SpinachWorker(this);
 		
 		if(savedInstanceState != null) {
@@ -58,6 +69,13 @@ public class SendOffense extends Activity {
 		
 		smsButton.setEnabled(false);
 		callButton.setEnabled(false);
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.send_menu, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 	
 	@Override

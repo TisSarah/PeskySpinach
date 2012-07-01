@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<group android:id="@+id/sendoptions">
+    	<item android:id="@+id/sms" android:title="SMS" android:visible="true" android:showAsAction="always" android:titleCondensed="SMS" android:icon="@drawable/icon_message_text"></item>
+	    <item android:id="@+id/call" android:title="Call" android:showAsAction="always" android:titleCondensed="Call" android:icon="@drawable/icon_call_text"></item>
+	</group>
+
+</menu>
