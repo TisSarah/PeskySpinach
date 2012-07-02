@@ -9,6 +9,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.provider.ContactsContract.Contacts;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 public class PeskySpinach extends Activity {
@@ -34,9 +37,21 @@ public class PeskySpinach extends Activity {
         mSpinachWorker = new SpinachWorker(this);
     }
     
-    public void doLaunchContactPicker(View view) {
-    	Intent contactPickerIntent = new Intent(Intent.ACTION_PICK, Contacts.CONTENT_URI);
-    	startActivityForResult(contactPickerIntent, CONTACT_PICKER_RESULT);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	MenuInflater inflater = getMenuInflater();
+    	inflater.inflate(R.menu.who_menu, menu);
+    	return super.onCreateOptionsMenu(menu);
+    }
+    
+    @Override public boolean onOptionsItemSelected(MenuItem item) { 
+    	switch(item.getItemId()) {
+	    	case R.id.pick_contact: 
+	    		Intent contactPickerIntent = new Intent(Intent.ACTION_PICK, Contacts.CONTENT_URI);
+	    		startActivityForResult(contactPickerIntent, CONTACT_PICKER_RESULT);
+	    		return true;
+	    	default: return super.onOptionsItemSelected(item);
+    	}
     }
 
 	@Override
